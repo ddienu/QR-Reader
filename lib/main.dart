@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
       title: 'QR Reader',
       initialRoute: 'home',
       routes: {
-        'home': (_) => HomePage(),
-        'mapa': (_) => MapaPage(),
+        'home': (BuildContext ) => HomePage(),
+        'mapa': (Buildcontext ) => MapaPage(),
       },
     );
   }
