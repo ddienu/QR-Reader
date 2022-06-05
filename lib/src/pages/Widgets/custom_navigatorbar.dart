@@ -7,6 +7,8 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      selectedItemColor: Colors.teal,
+      unselectedItemColor: Colors.teal,
       elevation: 0,
       items: [
         BottomNavigationBarItem(
