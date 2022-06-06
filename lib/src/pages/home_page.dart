@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:qr_reader/src/pages/Widgets/custom_navigatorbar.dart';
 import 'package:qr_reader/src/pages/Widgets/scan_button.dart';
+import 'package:qr_reader/src/pages/bodyhome_page.dart';
+import 'package:qr_reader/src/pages/direcciones_page.dart';
+import 'package:qr_reader/src/pages/mapas_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,12 +23,12 @@ class HomePage extends StatelessWidget {
             ),
         ],
       ),
-      body: Center(
-           child: Text('Home Page'),
-           ),
+      body: HomePageBody(),
            bottomNavigationBar: CustomNavigationBar(),
            floatingActionButton: ScanButton(),
            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
-}
+  
+ 
+ }
