@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:qr_reader/src/Widgets/custom_navigatorbar.dart';
-import 'package:qr_reader/src/Widgets/scan_button.dart';
+import 'package:qr_reader/Widgets/custom_navigatorbar.dart';
+import 'package:qr_reader/Widgets/scan_button.dart';
 
 import 'package:qr_reader/src/pages/bodyhome_page.dart';
 import 'package:qr_reader/src/pages/direcciones_page.dart';

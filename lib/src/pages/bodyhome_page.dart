@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qr_reader/providers/db_provider.dart';
 import 'package:qr_reader/providers/ui_provider.dart';
 
 import 'direcciones_page.dart';
@@ -14,6 +15,8 @@ import 'mapas_page.dart';
 
 
     final currentIndex = uiProvider.selectedMenuOpt;
+
+    DBProvider.db.database;
 
      switch( currentIndex ){
        case 0:  
