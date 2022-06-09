@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:qr_reader/providers/db_provider.dart';
 import 'package:qr_reader/providers/ui_provider.dart';
 
@@ -16,7 +17,10 @@ import 'mapas_page.dart';
 
     final currentIndex = uiProvider.selectedMenuOpt;
 
-    DBProvider.db.database;
+    final scanTemp = new ScanModel(id: 0, tipo: 'http', valor: 'http://google.com');
+
+    DBProvider.db.nuevoScan(scanTemp);
+
 
      switch( currentIndex ){
        case 0:  
