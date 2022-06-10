@@ -17,12 +17,9 @@ import 'mapas_page.dart';
 
     final currentIndex = uiProvider.selectedMenuOpt;
 
-    final scanTemp = new ScanModel(id: 0, tipo: 'http', valor: 'http://google.com');
+    DBProvider.db.getTodosLosScans().then(( print));
 
-    DBProvider.db.nuevoScan(scanTemp);
-
-
-     switch( currentIndex ){
+   switch( currentIndex ){
        case 0:  
        return MapasPage();
        case 1: 
