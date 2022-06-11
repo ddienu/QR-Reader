@@ -6,8 +6,15 @@ class MapasPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Mapas Page'),
-    );
+    return ListView.builder(
+      itemBuilder: (_ , i) => ListTile(
+        leading: Icon(Icons.map, color: Colors.teal),
+        title: Text('http://twitter.com'),
+        subtitle: Text('ID: 123'),
+        trailing: Icon(Icons.keyboard_arrow_right),
+        onTap: () => print('Abrir algo...'),
+      ),
+      itemCount: 10,
+      );
   }
 }
