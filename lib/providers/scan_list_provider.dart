@@ -12,8 +12,10 @@ class ScanListProvider extends ChangeNotifier{
 
 
  nuevoScan( String valor) async {
+  
 
-  final nuevoScan = ScanModel(valor: valor, id: 3, tipo: '');
+  final nuevoScan = ScanModel(valor: valor, id: 0, tipo: '');
+
   final id = await DBProvider.db.nuevoScan(nuevoScan);
 
   nuevoScan.id = id;

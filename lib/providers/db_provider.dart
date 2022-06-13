@@ -26,7 +26,7 @@ class DBProvider {
 
     return await openDatabase(
       path,
-      version: 2,
+      version: 1,
       onOpen: ( db ){},
       onCreate: (Database db, int version) async {
 
@@ -37,7 +37,6 @@ class DBProvider {
             valor TEXT
           )
         ''');
-
         }
       );
 
