@@ -8,50 +8,58 @@ class ScanListProvider extends ChangeNotifier{
 
  List<ScanModel> scans = [];
 
- String tipoSeleccionado = "geo";
+ String tipoSeleccionado = "http";
 
 
  nuevoScan( String valor) async {
 
-  final nuevoScan = ScanModel(valor: valor, id: 1, tipo: '');
-
+  final nuevoScan = ScanModel(valor: valor, id: 3, tipo: '');
   final id = await DBProvider.db.nuevoScan(nuevoScan);
 
   nuevoScan.id = id;
 
-  if ( this.tipoSeleccionado == nuevoScan.tipo){
 
-  this.scans.add(nuevoScan);
+  if ( tipoSeleccionado == nuevoScan.tipo){
+
+  scans.add(nuevoScan);
   notifyListeners();
 
   }
 
-  cargarScans() async{
+  Future<ScanListProvider?>cargarScans() async{
 
     final scans = await DBProvider.db.getTodosLosScans();
     this.scans = [...?scans];
     notifyListeners();
   }
 
-  cargarScansPorTipo(String tipo) async {
-
-    final scans = await DBProvider.db.getScansPorTipo(tipo);
+   void cargarScansPorTipo(String tipo) async {
+     final scans = await DBProvider.db.getScansPorTipo(tipo);
     this.scans = [...?scans];
     tipoSeleccionado = tipo;
     notifyListeners();
+   }
+   
   }
 
-  borrarTodos()async{
+  Future<ScanListProvider?>borrarTodos()async{
 
     await DBProvider.db.deleteAllScans();
-    this.scans = [];
+    scans = [];
     notifyListeners();
   }
 
-  borrarPorId(int id) async {
+  Future<ScanListProvider?>borrarScanPorId(int id) async {
 
     await DBProvider.db.deleteScan(id);
     cargarScansPorTipo(tipoSeleccionado);
+  }
+  
+  void cargarScansPorTipo(String tipoSeleccionado) async {
+    final scans = await DBProvider.db.getScansPorTipo(tipoSeleccionado);
+    this.scans = [...?scans];
+    tipoSeleccionado = tipoSeleccionado;
+    notifyListeners();
   }
 
 
@@ -60,4 +68,3 @@ class ScanListProvider extends ChangeNotifier{
 
 
  }
-}

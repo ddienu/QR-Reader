@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';   
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:qr_reader/providers/scan_list_provider.dart';   
 
 
 class MapasPage extends StatelessWidget {
@@ -6,15 +8,20 @@ class MapasPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final scanListProvider = Provider.of<ScanListProvider>(context);
+    
+    final scans = scanListProvider.scans;
+
     return ListView.builder(
       itemBuilder: (_ , i) => ListTile(
         leading: Icon(Icons.map, color: Colors.teal),
-        title: Text('http://twitter.com'),
-        subtitle: Text('ID: 123'),
+        title: Text( scans[i].valor),
+        subtitle: Text(scans[i].id.toString()),
         trailing: Icon(Icons.keyboard_arrow_right),
         onTap: () => print('Abrir algo...'),
       ),
-      itemCount: 10,
+      itemCount: scans.length,
       );
   }
 }
