@@ -9,8 +9,9 @@ class ScanModel {
         required this.id,
         required this.tipo,
         required this.valor,
-    }) {
-
+        
+    })
+     {
       if (valor.contains('http')){
         tipo = 'http';
       }else{

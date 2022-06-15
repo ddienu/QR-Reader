@@ -32,7 +32,7 @@ class DBProvider {
 
         await db.execute('''
           CREATE TABLE  Scans(
-            id INTEGER PRIMARY KEY,
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             tipo TEXT,
             valor TEXT
           )

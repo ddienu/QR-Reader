@@ -10,11 +10,10 @@ class ScanListProvider extends ChangeNotifier{
 
  String tipoSeleccionado = "http";
 
-
- nuevoScan( String valor) async {
+  nuevoScan( String valor) async {
   
 
-  final nuevoScan = ScanModel(valor: valor, id: 0, tipo: '');
+  final nuevoScan = ScanModel(valor: valor, id: 2, tipo: '');
 
   final id = await DBProvider.db.nuevoScan(nuevoScan);
 
@@ -63,10 +62,4 @@ class ScanListProvider extends ChangeNotifier{
     tipoSeleccionado = tipoSeleccionado;
     notifyListeners();
   }
-
-
-
-
-
-
  }
